@@ -44,3 +44,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## installed packages
+```bash
+npm i @mui/material @emotion/react @emotion/styled
+ @mui/x-data-grid @mui/icons-material react-router-dom@6 react-pro-sidebar formik yup @fullcalendar/core @fullcalendar/daygrid @fullca
+lendar/timegrid @fullcalendar/list @nivo/core @nivo/pie @nivo/line @nivo/bar
+```
