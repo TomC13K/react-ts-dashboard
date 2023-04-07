@@ -62,9 +62,13 @@ const [selected, setSelected]= useState("Dashboard");
           padding: "5px 35px 5px 20px !important"
       },
       "& .ps-menu-button:hover" : {
-        color : "#868dfb !important"
+        color : "#868dfb !important",
+        background:"transparent !important",
       },
       "& .ps-menu-button:active" : {
+        color : "#6870fa !important"
+      },
+      "& .ps-active" : {
         color : "#6870fa !important"
       }
     }}
