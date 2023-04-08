@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import {Sidebar, Menu, MenuItem, useProSidebar} from 'react-pro-sidebar';
-//import 'react-pro-sidebar/dist/css/styles.css';
+import {Sidebar, Menu, MenuItem} from 'react-pro-sidebar';
 import {Box, IconButton, Typography, useTheme} from "@mui/material";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import {tokens} from "../../theme";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
@@ -13,7 +12,7 @@ import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined
 import HelpOutlinedIcon from '@mui/icons-material/HelpOutlined';
 import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
 import PieChartOutlinedIcon from '@mui/icons-material/PieChartOutlined';
-import TimelinetOutlinedIcon from '@mui/icons-material/TimelineOutlined';
+import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 
@@ -25,25 +24,33 @@ interface ItemProps {
     setSelected:React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Item:React.FC<ItemProps>= ({title,to,icon,selected,setSelected}) =>{
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+const Item:React.FC<ItemProps> = ({ title, to, icon, selected, setSelected }) => {
+    const theme = useTheme();
+    const colors = tokens(theme.palette.mode);
+    return (
+        <MenuItem
+            active={selected === title}
+            style={{
+                color: colors.grey[100],
+            }}
+            onClick={() => {
+                setSelected(title);
+                console.log(to);
+                }
+            }
+            icon={icon}
+            component={ <Link to={to}/>}
+        >
+            {/*LINK must be used in component property inside the main MUI Item, that item is clickable, LINK doesnt work on its own*/}
+            <Typography>{title}</Typography>
 
-  return (
-      <MenuItem 
-          active={selected === title} 
-          style={{color:colors.grey[100]}}
-          icon={icon} 
-          onClick={()=>setSelected(title)}>
-          <Typography>{title}</Typography>
-          <Link  to={to}/>
-      </MenuItem>
-  )
+        </MenuItem>
+    );
 };
+
 const SidebarMenu:React.FC=()=> {
 const theme = useTheme();
 const colors = tokens(theme.palette.mode);
-const { toggleSidebar, collapseSidebar, broken, collapsed } = useProSidebar();
 const [isCollapsed,setIsCollapsed] = useState(false);
 const [selected, setSelected]= useState("Dashboard");
 
@@ -224,7 +231,7 @@ const [selected, setSelected]= useState("Dashboard");
             <Item
                 title="Line Chart"
                 to="/line"
-                icon={<TimelinetOutlinedIcon />}
+                icon={<TimelineOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
             />
