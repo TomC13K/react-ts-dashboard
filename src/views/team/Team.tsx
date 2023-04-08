@@ -8,7 +8,7 @@ import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
 import {ReactNode} from "react";
 
-interface IMockData {
+interface IMockDataTeam {
     id: number,
     name: string,
     email: string,
