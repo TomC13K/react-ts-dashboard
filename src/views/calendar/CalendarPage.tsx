@@ -110,15 +110,16 @@ const CalendarPage:React.FC = () =>{
                             {
                                 id: "12315",
                                 title: "All-day event",
-                                date: "2022-09-14",
+                                date: "2023-04-16",
                             },
                             {
                                 id: "5123",
                                 title: "Timed event",
-                                date: "2022-09-28",
+                                date: "2023-04-22",
                             },
                         ]}
                     />
+                    {/* event dates should be in current dates to see them displayed n clickable */}
 
                 </Box>
             </Box>
