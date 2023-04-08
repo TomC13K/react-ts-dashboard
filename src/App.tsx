@@ -9,6 +9,7 @@ import Team from "./views/team/Team";
 import Contacts from "./views/contacts/Contacts";
 import Invoices from "./views/invoices/Invoices";
 import Form from "./views/form/Form";
+import CalendarPage from "./views/calendar/CalendarPage";
 
 
 //themeProvider passing the themes to MUI components
@@ -31,12 +32,13 @@ const App:React.FC = () =>{
               <Route path="/contacts" element={<Contacts/>}/>
               <Route path="/invoices" element={<Invoices/>}/>
               <Route path="/form" element={<Form/>}/>
+              <Route path="/calendar" element={<CalendarPage/>}/>
               {/* <Route path="/bar" element={<Bar/>}/>
               <Route path="/pie" element={<Pie/>}/>
               <Route path="/line" element={<Line/>}/>
               <Route path="/faq" element={<Faq/>}/>
-              <Route path="/geography" element={<Geography/>}/>
-              <Route path="/calendar" element={<Calendar/>}/> */}
+              <Route path="/geography" element={<Geography/>}/>*/}
+
             </Routes>
           </main>
         </div>
