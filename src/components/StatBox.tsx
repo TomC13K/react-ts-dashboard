@@ -7,7 +7,7 @@ interface Props {
     subtitle: string;
     icon: JSX.Element;
     progress?: number;
-    increase?: string;
+    increase?: number;
 }
 
 const StatBox:React.FC<Props> = ({ title, subtitle, icon, progress, increase }) => {
