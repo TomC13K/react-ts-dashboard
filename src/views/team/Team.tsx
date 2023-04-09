@@ -1,25 +1,15 @@
 import {Box, Typography,useTheme} from "@mui/material";
 import {DataGrid} from "@mui/x-data-grid";
-import {tokens} from "../../theme";
+import {tokens, ThemeObject, Colors} from "../../theme";
 import {mockDataTeam} from "../../mockData/mockData";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
-import {ReactNode} from "react";
-
-interface IMockDataTeam {
-    id: number,
-    name: string,
-    email: string,
-    age: number,
-    phone: string,
-    access: string,
-}
 
 const Team:React.FC = () => {
-const theme = useTheme();
-const colors = tokens(theme.palette.mode);
+const theme: ThemeObject = useTheme();
+const colors: Colors = tokens(theme.palette.mode);
 
 
     const columns:any[] =[
@@ -31,32 +21,32 @@ const colors = tokens(theme.palette.mode);
     {   field: "access",
         headerName: "Access Level",
         flex:1,
-        // renderCell: ({ row: { access} }):ReactNode => {
-        // return(
-        //     <Box
-        //         width="60%"
-        //         m="0 auto"
-        //         p="5px"
-        //         display="flex"
-        //         justifyContent="center"
-        //         bgcolor={
-        //             access === "admin"
-        //                 ? colors.greenAccent[600]
-        //                 : access === "manager"
-        //                     ? colors.greenAccent[700]
-        //                     : colors.greenAccent[700]
-        //         }
-        //         borderRadius="4px"
-        //     >
-        //         {access==="admin" && <AdminPanelSettingsOutlinedIcon/>}
-        //         {access==="manager" && <SecurityOutlinedIcon/>}
-        //         {access==="user" && <LockOpenOutlinedIcon/>}
-        //         <Typography color={colors.grey[100]} sx={{ml:"5px"}}>
-        //             {access}
-        //         </Typography>
-        //
-        //     </Box>
-        // )}
+        renderCell: (params:any) => {
+        return(
+            <Box
+                width="60%"
+                m="0 auto"
+                p="5px"
+                display="flex"
+                justifyContent="center"
+                bgcolor={
+                    params.row.access === "admin"
+                        ? colors.greenAccent[600]
+                        : params.row.access === "manager"
+                            ? colors.greenAccent[700]
+                            : colors.greenAccent[700]
+                }
+                borderRadius="4px"
+            >
+                {params.row.access==="admin" && <AdminPanelSettingsOutlinedIcon/>}
+                {params.row.access==="manager" && <SecurityOutlinedIcon/>}
+                {params.row.access==="user" && <LockOpenOutlinedIcon/>}
+                <Typography color={colors.grey[100]} sx={{ml:"5px"}}>
+                    {params.row.access}
+                </Typography>
+
+            </Box>
+        )}
     }
 ];
 
