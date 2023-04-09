@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {Sidebar, Menu, MenuItem} from 'react-pro-sidebar';
 import {Box, IconButton, Typography, useTheme} from "@mui/material";
 import { Link } from "react-router-dom";
-import {tokens} from "../../theme";
+import {tokens, ThemeObject, Colors} from "../../theme";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
 import ContactsOutlinedIcon from '@mui/icons-material/ContactsOutlined';
@@ -25,15 +25,15 @@ interface ItemProps {
 }
 
 const Item:React.FC<ItemProps> = ({ title, to, icon, selected, setSelected }) => {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
+    const theme: ThemeObject = useTheme();
+    const colors: Colors = tokens(theme.palette.mode);
     return (
         <MenuItem
             active={selected === title}
             style={{
                 color: colors.grey[100],
             }}
-            onClick={() => {
+            onClick={():void => {
                 setSelected(title);
                 console.log(to);
                 }
@@ -49,10 +49,10 @@ const Item:React.FC<ItemProps> = ({ title, to, icon, selected, setSelected }) =>
 };
 
 const SidebarMenu:React.FC=()=> {
-const theme = useTheme();
-const colors = tokens(theme.palette.mode);
-const [isCollapsed,setIsCollapsed] = useState(false);
-const [selected, setSelected]= useState("Dashboard");
+const theme: ThemeObject = useTheme();
+const colors: Colors = tokens(theme.palette.mode);
+const [isCollapsed,setIsCollapsed] = useState<boolean>(false);
+const [selected, setSelected]= useState<string>("Dashboard");
 
     return (
     <Box sx={{

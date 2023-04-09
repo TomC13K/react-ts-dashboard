@@ -2,14 +2,14 @@ import React, { createContext,useState,useMemo } from "react";
 import {createTheme} from "@mui/material/styles";
 
 //color design tokens
-interface ColorTokens {
+export interface Colors {
   redAccent: any;
   blueAccent: any;
   greenAccent: any;
   grey: any;
   primary: any;
 }
-export const tokens = (mode:string) :ColorTokens => ({
+export const tokens = (mode:string) :Colors => ({
   ...(mode === "dark" 
   ? {
     grey: {
@@ -126,7 +126,7 @@ export const tokens = (mode:string) :ColorTokens => ({
   }),
 });
 
-interface Palette {
+export interface Palette {
   primary:any;
   secondary:any;
   neutral:any;
@@ -134,21 +134,13 @@ interface Palette {
   mode: any;
 }
 
-interface ThemeSettingReturn {
+export interface ThemeObject {
   palette: Palette;
   typography: any;
 }
 
-interface Colors {
-  grey: any;
-  primary: any;
-  greenAccent: any;
-  redAccent: any;
-  blueAccent: any;
-}
-
 // MUI theme settings
-export const themeSettings  = (mode:string) :ThemeSettingReturn => {
+export const themeSettings  = (mode:string) :ThemeObject => {
   const colors :Colors = tokens(mode);
 
   return {
@@ -220,11 +212,11 @@ export const themeSettings  = (mode:string) :ThemeSettingReturn => {
 
 //react context for the color mode
 export const ColorModeContext: React.Context<{toggleColorMode: () => void}> = createContext({
-  toggleColorMode: () => {}
+  toggleColorMode: ():void => {}
 });
 
-interface ColorUseMode {
-    theme: any;
+export interface ColorUseMode {
+    theme: ThemeObject;
     colorMode: {
         toggleColorMode: () => void;
     }

@@ -7,12 +7,12 @@ import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import { Box, List, ListItem, ListItemText, Typography, useTheme } from "@mui/material";
 import Header from "../../components/Header";
-import {tokens} from "../../theme";
+import {tokens, ThemeObject, Colors} from "../../theme";
 
 
 const CalendarPage:React.FC = () =>{
-    const theme= useTheme();
-    const colors = tokens(theme.palette.mode);
+    const theme: ThemeObject= useTheme();
+    const colors: Colors = tokens(theme.palette.mode);
     const [currentEvents, setCurrentEvents] = useState<any[]>([]);
 
     // when clicke on calndar it provides us with SELECTED and there are properties we can use to populate the calendarApi later

@@ -1,7 +1,7 @@
 import { useTheme } from "@mui/material";
 import { ResponsiveChoropleth } from "@nivo/geo";
 import { geoFeatures } from "../mockData/mockGeoFeatures";
-import { tokens } from "../theme";
+import { tokens, ThemeObject, Colors } from "../theme";
 import { mockGeographyData as data } from "../mockData/mockData";
 
 interface Props {
@@ -9,8 +9,8 @@ interface Props {
 }
 
 const GeographyChart:React.FC<Props> = ({ isDashboard = false }) => {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
+    const theme: ThemeObject = useTheme();
+    const colors: Colors = tokens(theme.palette.mode);
     return (
         <ResponsiveChoropleth
             data={data}

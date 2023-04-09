@@ -1,6 +1,6 @@
 import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
-import { tokens } from "../theme";
+import { tokens, ThemeObject, Colors } from "../theme";
 import { mockLineData as data } from "../mockData/mockData";
 
 interface Props {
@@ -9,8 +9,8 @@ interface Props {
 }
 
 const LineChart:React.FC<Props> = ({ isCustomLineColors = false, isDashboard = false }) => {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
+    const theme:ThemeObject = useTheme();
+    const colors: Colors = tokens(theme.palette.mode);
 
     return (
         <ResponsiveLine

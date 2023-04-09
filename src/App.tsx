@@ -2,7 +2,7 @@ import React from 'react';
 import Topbar from './views/global/Topbar';
 import SidebarMenu from './views/global/SidebarMenu';
 import Dashboard from './views/dashboard/Dashboard';
-import { ColorModeContext, useMode } from './theme';
+import {ColorModeContext, useMode} from './theme';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { Routes,Route } from 'react-router-dom';
 import Team from "./views/team/Team";

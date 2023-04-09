@@ -1,6 +1,6 @@
 import {Box, useTheme} from "@mui/material";
 import {DataGrid, GridToolbar} from "@mui/x-data-grid";
-import {tokens} from "../../theme";
+import {tokens, ThemeObject, Colors} from "../../theme";
 import {mockDataContacts} from "../../mockData/mockData";
 import Header from "../../components/Header";
 
@@ -18,8 +18,8 @@ interface IMockDataContact {
 }
 
 const Contacts:React.FC = () => {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
+    const theme: ThemeObject = useTheme();
+    const colors: Colors = tokens(theme.palette.mode);
 
 
     const columns:any[] =[

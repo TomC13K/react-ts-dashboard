@@ -1,23 +1,13 @@
 import {Box, Typography, useTheme} from "@mui/material";
 import {DataGrid} from "@mui/x-data-grid";
-import {tokens} from "../../theme";
+import {tokens, ThemeObject, Colors} from "../../theme";
 import {mockDataInvoices} from "../../mockData/mockData";
 import Header from "../../components/Header";
 import {ReactNode} from "react";
 
-
-interface IMockDataInvoice {
-    id: number,
-    name: string,
-    email: string,
-    cost: string,
-    phone: string,
-    date: string,
-}
-
 const Invoices:React.FC = () => {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
+    const theme:ThemeObject = useTheme();
+    const colors: Colors = tokens(theme.palette.mode);
 
 
     const columns:any[] =[
@@ -31,6 +21,7 @@ const Invoices:React.FC = () => {
                     ${params.row.cost}
                 </Typography>
             )},
+        // renderCell is used even though IDE is complaining
         {field: "date", headerName: "Date",flex:1},
 
     ];

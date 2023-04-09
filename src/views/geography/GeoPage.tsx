@@ -1,11 +1,11 @@
 import { Box, useTheme } from "@mui/material";
 import GeographyChart from "../../components/GeographyChart";
 import Header from "../../components/Header";
-import { tokens } from "../../theme";
+import { tokens, ThemeObject, Colors } from "../../theme";
 
 const GeoPage:React.FC = () => {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
+    const theme: ThemeObject = useTheme();
+    const colors: Colors = tokens(theme.palette.mode);
     return (
         <Box m="20px">
             <Header title="Geography" subtitle="Simple Geography Chart" />

@@ -1,5 +1,5 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
-import { tokens } from "../../theme";
+import { tokens, ThemeObject, Colors } from "../../theme";
 import { mockTransactions } from "../../mockData/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import EmailIcon from "@mui/icons-material/Email";
@@ -14,8 +14,8 @@ import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 
 const Dashboard =() => {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
+    const theme:ThemeObject = useTheme();
+    const colors: Colors = tokens(theme.palette.mode);
 
     return (
         <Box m="20px">

@@ -1,14 +1,14 @@
 import { useTheme } from "@mui/material";
 import { ResponsiveBar } from "@nivo/bar";
-import { tokens } from "../theme";
+import { tokens, ThemeObject, Colors } from "../theme";
 import { mockBarData as data } from "../mockData/mockData";
 
 interface Props {
     isDashboard?: boolean;
 }
 const BarChart:React.FC<Props> = ({ isDashboard = false }) => {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
+    const theme: ThemeObject = useTheme();
+    const colors: Colors = tokens(theme.palette.mode);
 
     return (
         <ResponsiveBar

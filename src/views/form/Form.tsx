@@ -22,7 +22,7 @@ const initialValues:IFormValues = {
     address2: "",
 }
 
-const phoneRegEx = /^(\+\d{1,3}[- ]?)?\d{10}$/; //regex for phone number
+const phoneRegEx: RegExp = /^(\+\d{1,3}[- ]?)?\d{10}$/; //regex for phone number
 
 const userSchema: yup.ObjectSchema<IFormValues> = yup.object().shape({
     firstName: yup.string().required("First Name is Required"),
@@ -41,7 +41,7 @@ const userSchema: yup.ObjectSchema<IFormValues> = yup.object().shape({
 
 const Form:React.FC =() =>{
     const isNonMobile:boolean = useMediaQuery('(min-width:600px)');  //when hit 600px, it will be true - can use media query in react not just css
-    const handleFormSubmit = (values:IFormValues) => {
+    const handleFormSubmit = (values:IFormValues): void => {
         console.log(values)
     }
 

@@ -1,5 +1,5 @@
 import { Box, useTheme } from "@mui/material";
-import { tokens } from "../theme";
+import { tokens, ThemeObject, Colors } from "../theme";
 
 interface Props {
     progress?: number;
@@ -7,8 +7,8 @@ interface Props {
 }
 
 const ProgressCircle:React.FC<Props> = ({ progress = 0.75, size = 40 }) => {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
+    const theme: ThemeObject = useTheme();
+    const colors: Colors = tokens(theme.palette.mode);
     const angle:number = progress * 360;
     return (
         <Box
