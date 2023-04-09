@@ -14,6 +14,7 @@ import Faq from "./views/faq/Faq";
 import BarPage from "./views/bar/BarPage";
 import PiePage from "./views/pie/PiePage";
 import LinePage from "./views/line/LinePage";
+import GeoPage from "./views/geography/GeoPage";
 
 
 //themeProvider passing the themes to MUI components
@@ -41,9 +42,7 @@ const App:React.FC = () =>{
               <Route path="/bar" element={<BarPage/>}/>
               <Route path="/pie" element={<PiePage/>}/>
               <Route path="/line" element={<LinePage/>}/>
-              {/*
-              <Route path="/geography" element={<Geography/>}/>
-              */}
+              <Route path="/geography" element={<GeoPage/>}/>
 
             </Routes>
           </main>
